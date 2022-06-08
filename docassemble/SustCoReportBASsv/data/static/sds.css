@@ -1,0 +1,234 @@
+/* custom css */
+
+/*  css tutorial - https://www.youtube.com/watch?v=l1mER1bV0N0 */
+
+/* style h1 element */
+h1 {
+  font-family: "Menlo";
+  font-size: 26px;
+  color: #0270BF;
+}
+
+/* align logo */
+#daMainQuestion {
+  text-align: left;
+}
+
+/* style h3 element */
+.h3 {
+  font-family: "Menlo";
+  font-size: 16px;
+  text-align: center;
+  color: #0270BF;
+}
+
+/* style generic body */
+body {
+  font-family: "Menlo";
+  font-size: 14px;
+  color: #000
+}
+
+/* style generic button */
+.btn {
+  background-color: #2962F6;
+  border-color: #2962F6;
+  color: #fff;
+  font-family: "Menlo";
+  font-size: 14px;
+}
+
+/* style hover button */
+.btn:hover {
+  background-color: #4AA4F8;
+  border-color: #4AA4F8;
+  color: #fff;
+}
+
+/* style in button when pushed */
+.btn.btn-da.btn-primary:focus {
+  background-color: #4AA4F8;
+  border-color: #4AA4F8;
+  color: #fff
+}
+
+/* style in stakeholder button when pushed */
+.form-label.btn-primary {
+  background-color: #4AA4F8;
+  border-color: #4AA4F8;
+  color: #fff;
+  font-size: 14px;
+}
+
+/* change text in clear button */
+.btn.btn-warning.btn-da.dasigclear {
+  visibility: hidden;
+  position: relative;
+}
+
+.btn.btn-warning.btn-da.dasigclear {
+  visibility: visible;
+  background-color: #df5d73;
+  border-color: #df5d73;
+  color: #000;
+  content: "Rensa";
+}
+
+.btn.btn-warning.btn-da.dasigclear:focus {
+  background-color: #d60f30;
+  border-color: #d60f30;
+}
+
+/* style in text help function */
+.daterm {
+  color: #2962F6;
+}
+
+.daterm:hover {
+  color: #4AA4F8;
+}
+
+/* style on input fields */
+.form-control {
+  font-family: "Menlo";
+  font-size: 14px;
+  color: #2962F6;
+}
+
+.form-control:focus {
+  font-size: 14px;
+  color: #2962F6;
+}
+
+/* style check boxes  */
+.labelauty-unchecked {
+  font-family: "Menlo";
+  font-size: 14px;
+  color: #2962F6;
+}
+
+
+.form-label.text-start.btn.btn-light {
+    font-family: "Menlo";
+    font-size: 14px;
+    color: #2962F6;
+    background-color: #fff;
+  }
+
+
+
+
+/* style spacer(da.note) between fields  */
+div.col-md-12 hr {
+  border-top: .8px solid;
+  color: #748094;
+  padding-bottom: 3px;
+  opacity: .65;
+}
+
+/* style text (da.note) between fields  */
+div.col-md-12 p {
+  font-family: "Menlo";
+  font-size: 16px;
+  font-weight: bold;
+  color: #2962F6;
+  text-align: center;
+}
+
+div.col-md-8.dafieldpart label.btn-primary {
+  background-color: #4AA4F8;
+  border-color: #4AA4F8;
+  font-family: "Menlo";
+  color: #fff;
+  font-size: 14px;
+  padding-left: 5px;
+}
+
+
+/* style dropdown area fields */
+.form-group {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.form-select.dasingleselect {
+  font-family: "Menlo";
+  color: #2962F6;
+  font-size: 14px;
+}
+
+
+.col-md-4.col-form-label.da-form-label.datext-right {
+  -ms-flex: 0 0 49.333333%;
+  flex: 0 0 49.333333%;
+  max-width: 49.333333%;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.col-md-8.dafieldpart {
+  -ms-flex: 0 0 49.666667%;
+  flex: 0 0 49.666667%;
+  max-width: 49.666667%;
+}
+
+.form-control.dasingleselect {
+  left: 10px;
+  width: 100%
+}
+
+/* remove requirement astrix  */
+.da-form-group.darequired .da-form-label:after {
+    content: '';
+}
+
+/* style da page for download of report */
+
+.da-attachment-alert.da-attachment-alert-single.alert.alert-success {
+  display: none
+}
+
+/* remove download button */
+div.da-attachment-download-wrapper #dadownload-tab0 {
+  visibility: hidden;
+  position: relative;
+
+}
+
+
+
+/* Change english to Swedish in the download document page */
+/* Text to send */
+.card-header span {
+  display: none;
+}
+.card-header:after {
+  content: "Fylla i din e-post för att få dokumentet skickat till dig";
+}
+
+/* Reposition the continue and back buttons to a fixed position at the bottom of the page at the download page */
+.dabody.report_download .da-button-set.da-field-buttons {
+  position: absolute;
+  bottom: 0;
+}
+
+/* Restore the place of the button on the exit page. */
+.dabody.scr_exit .da-button-set.da-field-buttons .btn.btn-da.btn-danger {
+  position: relative;
+  bottom: 0;
+}
+
+
+
+/* div.da-attachment-download-wrapper #dadownload-tab0:after {
+  visibility: visible;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "Ladda ned";
+} */
+
+/* change download text to swedish */
+
+
+

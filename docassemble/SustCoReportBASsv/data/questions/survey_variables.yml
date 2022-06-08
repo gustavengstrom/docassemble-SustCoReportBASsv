@@ -1,0 +1,134 @@
+---
+#! designed survey scales
+mandatory: True
+code: |
+  from collections import OrderedDict
+
+
+  orgform_dropdown = OrderedDict([ ('Aktiebolag', 'Aktiebolag'), ('Allmännyttigt ändamål', 'Allmännyttigt ändamål'),('Ekonomisk förening', 'Ekonomisk förening'), ('Enskild näringsverksamhet', 'Enskild näringsverksamhet'), ('Ideell förening', 'Ideell förening'), ('Handelsbolag', 'Handelsbolag'),('Annat', 'Annat')])
+
+  industry_dropdown = OrderedDict([ ('Jordbruk, skogsbruk och fiske', 'Jordbruk, skogsbruk och fiske'),('Industri', 'Industri'),('Bygg', 'Bygg'),('Handel', 'Handel'),('Transport', 'Transport'),('Besöksnäring', 'Besöksnäring'),('Information, inklusive IT', 'Information, inklusive IT'),('Fastigheter', 'Fastigheter'),('Tjänster till företag', 'Tjänster till företag'),('Skola, utbildning', 'Skola, utbildning'),('Vård och omsorg', 'Vård och omsorg'),('Personliga tjänster', 'Personliga tjänster'),('Annat', 'Annat')])
+
+  region_dropdown = OrderedDict([ ('Blekinge','Blekinge'), ('Dalarna','Dalarna'), ('Gotland','Gotland'), ('Gävleborg','Gävleborg'), ('Halland','Halland'), ('Jämtland Härjedalen','Jämtland Härjedalen'), ('Jönköpings län','Jönköpings län'), ('Kalmar län','Kalmar län'), ('Kronoberg','Kronoberg'), ('Norrbotten','Norrbotten'), ('Skåne','Skåne'), ('Stockholm','Stockholm'), ('Sörmland','Sörmland'), ('Uppsala','Uppsala'), ('Värmland','Värmland'), ('Västerbotten','Västerbotten'), ('Västernorrland','Västernorrland'), ('Västmanland','Västmanland'), ('Örebro län','Örebro län'), ('Östergötland','Östergötland'), ('Västra Götaland','Västra Götaland')])
+
+  employee_dropdown = OrderedDict([ ('Inga anställda', 'Inga anställda'), ('1-5 anställda', '1-5 anställda'), ('6-25 anställda', '6-25 anställda'), ('26-50 anställda', '26-50 anställda'), ('51-100 anställda', '51-100 anställda'), ('101-250 anställda', '101-250 anställda'), ('Fler än 250 anställda', 'Fler än 250 anställda')])
+
+  turnaround_dropdown = OrderedDict([ ('Mindre än 1 miljon SEK', 'Mindre än 1 miljon SEK'), ('1-3 miljoner SEK', '1-3 miljoner SEK'), ('3-5 miljoner SEK', '3-5 miljoner SEK'), ('5-10 miljoner SEK', '5-10 miljoner SEK'), ('10-50 miljoner miljoner SEK', '10-50 miljoner miljoner SEK'), ('50-100 miljoner SEK', '50-100 miljoner SEK'), ('Mer än 100 miljoner SEK', 'Mer än 100 miljoner SEK') ])
+
+
+  scr_importance_likert = OrderedDict([ (1.0,'5 - Mycket viktig'), (0.75, '4 - Ganska viktig'), (0.5, '3 - Varken eller'), (0.25,'2 - Ganska oviktig'), (0.1,'1 - Mycket oviktig'), ])
+
+  scr_significance_likert = OrderedDict([ (1.0,'5 - Avsevärd positiv påverkan'), (0.75, '4 - Viss positiv påverkan'), (0.5, '3 - Ingen direkt påverkan'), (0.25,'2 – Viss negativ påverkan'), (0.1,'1 - Avsevärd negativ påverkan'), ])
+
+  scr_application_likert = OrderedDict([ (1.0,'5 - Mycket stor utsträckning'), (0.75,'4 - Stor utsträckning'), (0.5, '3 - Viss  utsträckning'), (0.25, '2 - Liten utsträckning'), (0.1, '1 - Ingen tillämpning'), ])
+
+  scr_effect_likert = OrderedDict( [(1.0, 'Stor postiv effekt'), (0.75, 'Viss positiv effekt'),(0.5, 'Ingen effekt'),(0.25, 'Viss negativ effekt'),(0.1, 'Stor negativ effekt'),] )
+
+  scr_effect_stakeholders = OrderedDict([(1.0,'Mycket stor utsträckning'), (0.75,'Stor utsträckning'), (0.5, 'Viss  utsträckning'), (0.25, 'Liten utsträckning'), (0.1, 'Värdesätter ej') ])
+
+---
+
+table: results_table
+rows: results
+show: True
+require gathered: True
+columns:
+# backgrounds varible
+  - Organisation: row_item.name
+  - Organisationsform: row_item.org_form
+  - Datum: row_item.date
+  - Bransch: row_item.industry
+  - Region: row_item.region
+  - Anställda: row_item.employee
+  - Omsättning: row_item.turnaround
+  - Verksamhetsinriktning: str(row_item.op_focus.true_values()).replace(" and ", " och ")
+  - Verksamhetsinriktning_list: json.dumps([k for k,v in row_item.op_focus.items() if v == True])
+# Q5 - sustainability principles
+  - Q5_ansvarighet: row_item.q5_respb_imp_est
+  - Q5_ansvarighet_tillämp: row_item.q5_respb_imp_app
+  - Q5_ansvarighet_10: row_item.q5_respb_imp_10
+  - Q5_ansvarighet_intressent: row_item.q5_respb_imp_stakeh
+  - Q5_transparens: row_item.q5_trans_imp_est
+  - Q5_transparens_tillämp: row_item.q5_trans_imp_app
+  - Q5_transparens_10: row_item.q5_trans_imp_10
+  - Q5_transparens_intressent: row_item.q5_trans_imp_stakeh
+  - Q5_etiskt_uppförande: row_item.q5_ethic_imp_est
+  - Q5_etiskt_uppförande_tillämp: row_item.q5_ethic_imp_app
+  - Q5_etiskt_uppförande_10 : row_item.q5_ethic_imp_10
+  - Q5_etiskt_uppförande_intressent : row_item.q5_ethic_imp_stakeh
+  - Q5_intressenternas_intressen: row_item.q5_resp_stake_imp_est
+  - Q5_intressenternas_intressen_tillämp: row_item.q5_resp_stake_imp_app
+  - Q5_intressenternas_intressen_10: row_item.q5_resp_stake_imp_10
+  - Q5_intressenternas_intressen_intressent: row_item.q5_resp_stake_imp_stakeh
+  - Q5_rättsstatens_principer: row_item.q5_resp_state_imp_est
+  - Q5_rättsstatens_principer_tillämp: row_item.q5_resp_state_imp_app
+  - Q5_rättsstatens_principer_10: row_item.q5_resp_state_imp_10
+  - Q5_rättsstatens_principer_intressent: row_item.q5_resp_state_imp_stakeh
+  - Q5_internationella_uppförandenormer: row_item.q5_resp_int_imp_est
+  - Q5_internationella_uppförandenormer_tillämp: row_item.q5_resp_int_imp_app
+  - Q5_internationella_uppförandenormer_10: row_item.q5_resp_int_imp_10
+  - Q5_internationella_uppförandenormer_intressent: row_item.q5_resp_int_imp_stakeh
+  - Q5_mänskliga_rättigheter: row_item.q5_resp_hr_imp_est
+  - Q5_mänskliga_rättigheter_tillämp: row_item.q5_resp_hr_imp_app
+  - Q5_mänskliga_rättigheter_10: row_item.q5_resp_hr_imp_10
+  - Q5_mänskliga_rättigheter_intressent: row_item.q5_resp_hr_imp_stakeh
+# Q11 - responsebility areas of operations  
+  - Q11_verk_organisation: row_item.q11_operation_est
+  - Q11_verk_bransch: row_item.q11_operation_est_industry
+  - Q11_verk_intressent: row_item.q11_operation_est_stakeh
+  - Q11_verk_10: row_item.q11_operation_est_industry_10
+  - Q11_mr_organisation: row_item.q11_mr_est
+  - Q11_mr_bransch: row_item.q11_mr_est_industry
+  - Q11_mr_intressent: row_item.q11_mr_est_stakeh
+  - Q11_mr_10: row_item.q11_mr_est_industry_10
+  - Q11_arb_organisation: row_item.q11_arb_est
+  - Q11_arb_bransch: row_item.q11_arb_est_industry
+  - Q11_arb_intressent: row_item.q11_arb_est_stakeh
+  - Q11_arb_10: row_item.q11_arb_est_industry_10
+  - Q11_milj_organisation: row_item.q11_milj_est
+  - Q11_milj_bransch: row_item.q11_milj_est_industry
+  - Q11_milj_intressent: row_item.q11_milj_est_stakeh
+  - Q11_milj_10: row_item.q11_milj_est_industry_10
+  - Q11_gverk_organisation: row_item.q11_gverk_est
+  - Q11_gverk_bransch: row_item.q11_gverk_est_industry
+  - Q11_gverk_intressent: row_item.q11_gverk_est_stakeh
+  - Q11_gverk_10: row_item.q11_gverk_est_industry_10
+  - Q11_konsum_organisation: row_item.q11_konsum_est
+  - Q11_konsum_bransch: row_item.q11_konsum_est_industry
+  - Q11_konsum_intressent: row_item.q11_konsum_est_stakeh
+  - Q11_konsum_10: row_item.q11_konsum_est_industry_10
+  - Q11_samutv_organisation: row_item.q11_samutv_est
+  - Q11_samutv_bransch: row_item.q11_samutv_est_industry
+  - Q11_samutv_intressent: row_item.q11_samutv_est_stakeh
+  - Q11_samutv_10: row_item.q11_samutv_est_industry_10
+# Q7/8 - stakeholder assessment
+  - Q8_intressent_vikt: str(row_item.import_stakeholders.true_values()).replace(" and ", " och ")
+  - Q8_intressent_vikt_list: json.dumps([k for k,v in row_item.import_stakeholders.items() if v == True])
+  - Q8_intressent_vikt_princip: str(row_item.import_stakeholders_ind.true_values()).replace(" and ", " och ")
+  - Q8_intressent_vikt_princip_list: json.dumps([k for k,v in row_item.import_stakeholders_ind.items() if v == True])
+  - Q8_intressent_vikt_ansvarsområde: str(row_item.import_stakeholders_ind_10.true_values()).replace(", and ", ", och ")
+  - Q8_intressent_vikt_ansvarsområde_list: json.dumps([k for k,v in row_item.import_stakeholders_ind_10.items() if v == True])
+
+# Q11/38 & Q13/22 - prio & sustainability areas of operations 
+  - Q22_org_prio_verksamhet: row_item.q0_prio_oper_est
+  - Q22_org_prio_mr: row_item.q0_prio_mr_est
+  - Q22_org_prio_arbförhåll: row_item.q0_prio_work_est
+  - Q22_org_prio_miljö: row_item.q0_prio_env_est
+  - Q22_org_prio_verkmetod: row_item.q0_prio_good_work_est
+  - Q22_org_prio_konsumentfråg: row_item.q0_prio_consum_est
+  - Q22_org_prio_samhällutv: row_item.q0_prio_soc_dev_est
+  - Q22_sdg_organisation: str(row_item.q22_sdg_org.true_values()).replace(" and ", " och ")
+  - Q22_sdg_organisation_list: json.dumps([k for k,v in row_item.q22_sdg_org.items() if v == True])
+  - Q22_sdg_världen: str(row_item.q22_sdg_world.true_values()).replace(" and ", " och ")
+  - Q22_sdg_världen_list: json.dumps([k for k,v in row_item.q22_sdg_world.items() if v == True])
+
+---
+
+
+
+
+
+
+
+
+

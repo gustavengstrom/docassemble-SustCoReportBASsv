@@ -1,0 +1,153 @@
+metadata:
+  title: |
+    sustcoreport hållbarhetsanalys baserad på ISO26000 och SIS/TS 2:20211
+  short title: |
+    Webbportal för analys av organisationers hållbarhetsarbete enligt centrala delar av ISO26000 och SIS/TS 2:2021
+  show login: False
+  description: |
+    Webbapplikation för hållbarhetsanalys för små- och medelstora företag.  
+  authors:
+    - name: Gustav Engström and Jonas Norén
+      organization: dav|consulting
+  revision_date: 2022-01-01
+
+---
+## image varibles are set here
+images:
+  'sds_favicon': sds_favicon.png
+  'sds_intro': sds_intro.png
+  'ballon_intro': ballon.png
+  'kite_intro': kite_sun.png
+  'report_all': ra.png
+  'sustcoreport_logo': sustcoreport_logo.png
+  'scr_question': scr_question.png
+
+
+---
+## features for the survey are managed here
+features:
+  css: sds.css
+  popover trigger: hover
+  #css: https://bootswatch.com/4/simplex/bootstrap.min.css
+  #bootstrap theme: https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/darkly/bootstrap.min.css
+  navigation: False
+  progress bar: False
+  show progress bar percentage: False
+  progressive: True
+  inverse navbar: False
+  hide navbar: True
+
+
+---
+## all objects for the survey are managed here
+objects:
+  - results: DAList
+  - visualization_image_radar_1: DAFile
+    datatype: file
+    maximum image size: 1024
+  - visualization_image_radar_2: DAFile
+    datatype: file
+    maximum image size: 1024
+  - visualization_image_radar_3: DAFile
+    datatype: file
+    maximum image size: 1024
+  - visualization_image_radar_4: DAFile
+    datatype: file
+    maximum image size: 1024
+  - visualization_image_scatter: DAFile
+    datatype: file
+    maximum image size: 1024
+
+---
+sections:
+  - Introduktion
+  - Grunduppgifter
+  - Principerna
+  - Ansvarsområden
+  - Intressenter
+  - Prioriteringar
+  - Rapport
+  - Avslutning
+
+---
+interview help:
+  label: Hjälp
+  heading: Hur denna applikation ska användas
+  content: |
+    TA IN TEXTER
+  
+---
+terms:
+
+#! definition av hållbarhetsbegrepp
+
+  hållbar samhällsutveckling: |
+    Hållbar samhällsutveckling - en utveckling som tillgodoser dagens behov utan att äventyra kommande generationers möjligheter att tillgodose sina behov.
+  socialt ansvarstagande: |
+    Socialt ansvarstagande - en organisations ansvar för den påverkan som organisationens beslut och aktiviteter har på miljö, samhälle och ekonomi; och som genom transparent och etiskt uppförande bidrar till hållbar utveckling. 
+
+  informationshantering: | 
+    SustCoReport följer Svensk och Europeisk lag för hantering och lagring av data med bäring på personuppgifter - Personuppgiftslagen (PUL) och General Data Protection Regulation (GDPR).<br><br>
+    
+    All datatrafik i SustCoReport är skyddad och ingen person- eller aktörsanknuten information sparas. Dock sparas viss metadata i syfte att ge SustCoReport förståelse för hur företag och organisationer på en aggregerade nivå ser på frågeställningarna som lyfts i SustCoReport.  
+
+#! definitioner av hållbarhetsprinciperna (Q5)
+  Ansvarighet: |
+    **Att ta ansvar för påverkan på samhälle, ekonomin och miljön.**<br>       
+    Exempel: accepterar relevant granskning och stå till svars, motverka upprepning av oavsiktliga och oförutsedda negativa effekter.
+  Transparens: |
+    **Att vara transparent vad gäller beslut och aktiviteter som påverkar samhället och miljön.**<br>    
+    Exempel: offentliggör tydlig, korrekt, lättåtkomlig, rimlig information kring effekterna av den styrning och beslut vi ansvarar för. 
+  Etiskt uppförande: |
+    **Att uppför sig etiskt.**<br>    
+    Exempel: tillämpar värderingar som ärlighet, rättvisa och integritet, genom att bland annat visa omtanke för människor och miljö.
+  Respekt för intressenternas intressen: |
+    **Att respektera, beakta och bemöta intressenters intressen.**<br>     
+    Exempel: identifierar och beaktar individer eller grupper som kan ha rättigheter, relevanta krav och behov.
+  Respekt för rättsstatens principer: |
+    **Att acceptera att rättsstatens principer är obligatoriska.**<br>    
+    Exempel: känner till och följer tillämpliga lagar och förordningar där vi är verksamma.
+  Respekt för internationella uppförandenormer: |
+    **Att respektera internationella uppförandenormer, samtidigt som rättsstatens principer efterlevs.**<br><br>
+    Exempel: strävar efter att respektera internationella normer när lagkrav saknas, eller när krav strider mot internationella normer, samt undviker medskyldighet.
+  Respekt för de mänskliga rättigheterna: |
+    **Att respektera de mänskliga rättigheterna och erkänna deras betydelse och allmängiltighet.**<br>    
+    Exempel: bidrar till att de mänskliga rättigheterna respekteras och undviker att dra nytta av situationer där de ej respekteras
+
+#! definitioner till intressent frågor (Q8)
+  Viktigaste intressenterna: |
+    Text
+  Intressenternas prioriteringar: |
+    Text
+
+#! definitioer av hållbarhets huvudområde (Q11)
+  Verksamhetsstyrning: |
+    **System genom vilket organisationen fattar och genomför beslut för att nå sina mål.**<br> 
+    Exempel: tillämpa de 7 principerna, engagera intressenter, förbättra påverkan, följa upp, utvärdera.
+  Mänskliga rättigheter: |
+    **Medborgerliga och politiska rättigheter samt ekonomiska, sociala och kulturella rättigheter respekteras.**<br> 
+    Exempel: stödja de mänskliga rättigheterna i den egna organisationen, i leveranskedjan, och i samhället genom till exempel samarbeten, i samband med inköp, förvärv, sammanslagningar, i risksituationer, i arbetslivet, för att bland annat undvika medskyldighet, diskriminering, barnarbete, och hantera missförhållanden.
+  Arbetsförhållanden: |
+    **Styrning och relationen mellan organisationen och det arbete som genomförs inom, av eller på uppdrag av organisationen, inklusive arbete som utförs av underleverantörer.**<br> 
+    Exempel: allas rätt att tjäna sitt uppehälle genom fritt valt arbete och rätten till rättvisa och tillfredställande arbetsvillkor, arbetsmiljö, social trygghet och personlig utveckling.
+  Miljö: |  
+    **Negativ miljöpåverkan minimeras genom riskhantering, livscykelperspektiv, miljökonsekvensbedömning, försiktighet, att förorenaren betalar.**<br> 
+    Exempel: förebyggande av föroreningar, hållbar resursanvändning, begränsning av och anpassning till klimatförändringar, samt skydd av natur, biologisk mångfald och återställande av naturliga livsmiljöer.
+  Goda verksamhetsmetoder: |
+    **Etiskt agerande i kontakterna med andra organisationer, främjar förbättringar, visar ledarskap, i organisationens inflytandesfär.**<br>     
+    Exempel: anti-korruption, ansvarsfullt politiskt deltagande, konkurrens på lika villkor, ansvar i leverenskedjan, äganderätt. 
+  Konsumentfrågor: |
+     **Tillhandhållna produkter och tjänster ska omfattas av upplysningar och korrekt information med hjälp av god transparent och användbar marknadsföringsinformation och avtalssed.**<br>    
+     Exempel: skydd av konsumenters och kunders hälsa och säkerhet, hållbar konsumtion, klagomåls- och tvistlösning, skydd av personliga uppgifter
+  Samhällsengagemang och utveckling: |
+     **Stöd till och utveckling av lokalsamhället inom gemensamma intresseområden och i samråd med berörda, kan bidra till samhällsutvecklingen och stärka det civila samhället.**<br> 
+     Exempel: lokalt samhällsengagemang genom delaktighet, utbildning och kultur, jobbskapande och kompetensutveckling, utveckling och tillgång till teknik, skapa inkomstmöjligheter, hälsa, sociala investeringar.
+
+
+#! definitioner av FNs hållbarhetsmål (Q13/22)
+  Ingen fattigdom: |
+    Ingen fattigdom - test
+
+---
+
+
