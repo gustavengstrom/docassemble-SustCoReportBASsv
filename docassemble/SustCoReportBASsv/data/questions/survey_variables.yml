@@ -34,6 +34,7 @@ show: True
 require gathered: True
 columns:
 # backgrounds varible
+  - Namn: row_item.person_name
   - Organisation: row_item.name
   - Organisationsform: row_item.org_form
   - Datum: row_item.date

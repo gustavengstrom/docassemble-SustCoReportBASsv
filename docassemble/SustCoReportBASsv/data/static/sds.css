@@ -22,6 +22,16 @@ h1 {
   color: #0270BF;
 }
 
+/* style h6 element */
+.h6 {
+  font-family: "Menlo";
+  font-size: 12px;
+  text-align: center;
+  color: #0270BF;
+}
+
+
+
 /* style generic body */
 body {
   font-family: "Menlo";
@@ -82,6 +92,7 @@ body {
 /* style in text help function */
 .daterm {
   color: #2962F6;
+  text-decoration: none;
 }
 
 .daterm:hover {
@@ -107,12 +118,12 @@ body {
   color: #2962F6;
 }
 
-
 .form-label.text-start.btn.btn-light {
     font-family: "Menlo";
     font-size: 14px;
     color: #2962F6;
-    background-color: #fff;
+    background-color: #F4F5F6;
+    border-color: #F4F5F6
   }
 
 

@@ -15,7 +15,7 @@ question:  |
   [FILE sustcoreport_logo]
 subquestion: |
  
-  Välkommen till *SustCoReport* - ett webbaserat verktyg där organisationer och företag kan utföra en initial analys för att komma igång med sitt hållbarhetsarbete.
+ Välkommen till *SustCoReport* - ett webbaserat verktyg där organisationer och företag kan utföra en initial analys för att komma igång med sitt hållbarhetsarbete.
 
   Det tar uppskattningsvis 15-20 minuter att svara på frågorna vilket generera en unik rapport för er verksamhet. 
    
@@ -42,8 +42,6 @@ fields:
   - Dagens datum: results[i].date
     datatype: date
     required: True
-  - Ditt namn: responsible_person_docinput
-    required: False
   - Organisationens namn: results[i].name.text
     required: True
   - Organisationsform: results[i].org_form
@@ -83,7 +81,9 @@ fields:
       - Representation i utlandet
       - Ingen internationell verksamhet
     none of the above: True
-
+  - SustPrio Participant kod: results[i].person_name
+    required: False
+    
 continue button label: |
   Fortsätt
 back button: True
@@ -110,7 +110,7 @@ subquestion: |
 fields:
   - note: <hr> ## styling is done with css - see separate file. 
 
-  - note: <p>{Ansvarighet}<span>&nbsp;</span><span>&#9432;</span><br>
+  - note: <p>{Ansvarighet|Ansvarighet :far-fa-comment-dots:}</p>
 
   - 1) Vikten för er verksamhet: results[i].q5_respb_imp_est
     required: True
@@ -131,7 +131,8 @@ fields:
     
   - note: <hr>
 
-  - note: <p>{Transparens}<span>&nbsp;</span><span>&#9432;</span><br> 
+  - note: <p>{Transparens|Transparens :far-fa-comment-dots:}</p>
+  
   - 1) Vikten för er verksamhet: results[i].q5_trans_imp_est
     required: True
     code: |
@@ -152,7 +153,7 @@ fields:
 
   - note: <hr>
 
-  - note: <p>{Etiskt uppförande}<span>&nbsp;</span><span>&#9432;</span><br>
+  - note: <p>{Etiskt uppförande|Etiskt uppförande :far-fa-comment-dots:}</p>
   - 1) Vikten för er verksamhet: results[i].q5_ethic_imp_est
     required: True
     code: |
@@ -173,7 +174,7 @@ fields:
 
   - note: <hr>
 
-  - note: <p>{Respekt för intressenternas intressen}<span>&nbsp;</span><span>&#9432;</span><br>
+  - note: <p>{Respekt för intressenternas intressen|Respekt för intressenternas intressen :far-fa-comment-dots:}</p>
   - 1) Vikten för er verksamhet: results[i].q5_resp_stake_imp_est
     required: True
     code: | 
@@ -194,7 +195,7 @@ fields:
 
   - note: <hr>
 
-  - note: <p>{Respekt för rättsstatens principer}<span>&nbsp;</span><span>&#9432;</span><br>
+  - note: <p>{Respekt för rättsstatens principer|Respekt för rättsstatens principer :far-fa-comment-dots:}</p>
   - 1) Vikten för er verksamhet: results[i].q5_resp_state_imp_est
     required: True
     code: | 
@@ -215,7 +216,7 @@ fields:
 
   - note: <hr>
 
-  - note: <p>{Respekt för internationella uppförandenormer}<span>&nbsp;</span><span>&#9432;</span><br>
+  - note: <p>{Respekt för internationella uppförandenormer|Respekt för internationella uppförandenormer :far-fa-comment-dots:}</p>
   - 1) Vikten för er verksamhet: results[i].q5_resp_int_imp_est
     required: True
     code: |
@@ -235,7 +236,7 @@ fields:
     
 
   - note: <hr>
-  - note: <p>{Respekt för de mänskliga rättigheterna}<span>&nbsp;</span><span>&#9432;</span><br>
+  - note: <p>{Respekt för de mänskliga rättigheterna|Respekt för de mänskliga rättigheterna :far-fa-comment-dots:}</p>
   - 1) Vikten för er verksamhet: results[i].q5_resp_hr_imp_est
     required: True
     code: |
@@ -244,7 +245,7 @@ fields:
     required: True
     code: |
      scr_application_likert
-  - 3) Vikten för er bransch om 10 år<br><br><br>: results[i].q5_resp_hr_imp_10
+  - 3) Vikten för er bransch om 10 år: results[i].q5_resp_hr_imp_10
     required: True
     code: |
       scr_importance_likert
@@ -277,30 +278,10 @@ subquestion: |
   4) Hur betydande tror du att **era intressenter tycker** att er verksamhets påverkan är på ansvarsområdet?<br><br><br>
 
 fields:
-  - note: <hr>
-  
-  - note: <p>{Verksamhetsstyrning}<span>&nbsp;</span><span>&#9432;</span><br>
-  - 1) Er verksamhets påverkan: results[i].q11_operation_est
-    required: True
-    code: |
-      scr_significance_likert
-  - 2) Er branschs påverkan <u>idag</u>: results[i].q11_operation_est_industry
-    required: True
-    code: |
-      scr_significance_likert
-  - 3) Er branschs påverkan <u>om 10 år</u>: results[i].q11_operation_est_industry_10
-    required: True
-    code: |
-      scr_significance_likert
-  - 4) Er verksamhets påverkan enligt <u>era intressenter</u><br><br>: results[i].q11_operation_est_stakeh
-    required: True
-    code: |
-      scr_significance_likert
-
 
   - note: <hr>
   
-  - note: <p>{Mänskliga rättigheter}<span>&nbsp;</span><span>&#9432;</span><br>
+  - note: <p>{Mänskliga rättigheter|Mänskliga rättigheter :far-fa-comment-dots:}</p>
   - 1) Er verksamhets påverkan: results[i].q11_mr_est
     required: True
     code: |
@@ -321,7 +302,7 @@ fields:
 
   - note: <hr>
 
-  - note: <p>{Arbetsförhållanden}<span>&nbsp;</span><span>&#9432;</span><br>
+  - note: <p>{Arbetsförhållanden|Arbetsförhållanden :far-fa-comment-dots:}</p>
   - 1) Er verksamhets påverkan: results[i].q11_arb_est
     required: True
     code: |
@@ -342,7 +323,7 @@ fields:
 
   - note: <hr>
   
-  - note: <p>{Miljö}<span>&nbsp;</span><span>&#9432;</span><br>
+  - note: <p>{Miljö|Miljö :far-fa-comment-dots:}</p>
   - 1) Er verksamhets påverkan: results[i].q11_milj_est
     required: True
     code: |
@@ -363,7 +344,7 @@ fields:
 
   - note: <hr>
   
-  - note: <p>{Goda verksamhetsmetoder}<span>&nbsp;</span><span>&#9432;</span><br>
+  - note: <p>{Goda verksamhetsmetoder|Goda verksamhetsmetoder :far-fa-comment-dots:}</p>
   - 1) Er verksamhets påverkan: results[i].q11_gverk_est
     required: True
     code: |
@@ -384,7 +365,7 @@ fields:
 
   - note: <hr>
   
-  - note: <p>{Konsumentfrågor}<span>&nbsp;</span><span>&#9432;</span><br>
+  - note: <p>{Konsumentfrågor|Konsumentfrågor :far-fa-comment-dots:}</p>
   - 1) Er verksamhets påverkan: results[i].q11_konsum_est
     required: True
     code: |
@@ -405,7 +386,7 @@ fields:
 
   - note: <hr>
   
-  - note: <p>{Samhällsengagemang och utveckling}<span>&nbsp;</span><span>&#9432;</span><br>
+  - note: <p>{Samhällsengagemang och utveckling|Samhällsengagemang och utveckling :far-fa-comment-dots:}</p>
   - 1) Er verksamhets påverkan: results[i].q11_samutv_est
     required: True
     code: |
@@ -419,6 +400,26 @@ fields:
     code: |
       scr_significance_likert
   - 4) Er verksamhets påverkan enligt <u>era intressenter</u><br><br>:  results[i].q11_samutv_est_stakeh
+    required: True
+    code: |
+      scr_significance_likert
+
+  - note: <hr>
+  - note: <p>{Verksamhetsstyrning|Verksamhetsstyrning :far-fa-comment-dots:}</p><h6>Det sista ansvarsområdet avviker från övriga då det snarare är en förutsättning för påverkan inom ovannämnda 6 ansvarsområden.<br><br>Frågan blir således hur betydande {Verksamhetsstyrning|Verksamhetsstyrning} är för en samlad påverkan inom de 6 ansvarsområdena.</h6>
+  
+  - 1) Er verksamhets påverkan: results[i].q11_operation_est
+    required: True
+    code: |
+      scr_significance_likert
+  - 2) Er branschs påverkan <u>idag</u>: results[i].q11_operation_est_industry
+    required: True
+    code: |
+      scr_significance_likert
+  - 3) Er branschs påverkan <u>om 10 år</u>: results[i].q11_operation_est_industry_10
+    required: True
+    code: |
+      scr_significance_likert
+  - 4) Er verksamhets påverkan enligt <u>era intressenter</u><br><br>: results[i].q11_operation_est_stakeh
     required: True
     code: |
       scr_significance_likert
@@ -462,7 +463,7 @@ fields:
       - Försäkringsbolag
       - Högskola/Universitet
       - Icke statliga organisationer
-      - Investerare/Finansiärer
+      - Investerare
       - Konsumenter
       - Kunder
       - Leverantörer
@@ -495,7 +496,7 @@ fields:
       - Försäkringsbolag
       - Högskola/Universitet
       - Icke statliga organisationer
-      - Investerare/Finansiärer
+      - Investerare
       - Konsumenter
       - Kunder
       - Leverantörer
@@ -529,7 +530,7 @@ fields:
       - Försäkringsbolag
       - Högskola/Universitet
       - Icke statliga organisationer
-      - Investerare/Finansiärer
+      - Investerare
       - Konsumenter
       - Kunder
       - Leverantörer
@@ -906,9 +907,11 @@ code: |
 
   scatter_plot = show_graph_scatter(df=df_scatter,   filename="scatter_plot.png", visualization_image=visualization_image_scatter, height=500, width=900)
   
-  data = df.loc[0,:].to_dict()
-  data['source'] = 'SustCoReportBASsv'
-  reponse_status_code=store_interview_results(data)
+  ## store data
+  if not "playground" in interview_url():
+    data = df.loc[0,:].to_dict()
+    data['source'] = "SustCoReportBASsv"
+    reponse_status_code=store_interview_results(data)
 
 
 ---

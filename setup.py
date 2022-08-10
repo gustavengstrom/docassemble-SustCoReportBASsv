@@ -43,7 +43,7 @@ def find_package_data(where='.', package='', exclude=standard_exclude, exclude_d
     return out
 
 setup(name='docassemble.SustCoReportBASsv',
-      version='0.0.7',
+      version='0.1.4',
       description=('A docassemble extension.'),
       long_description='# docassemble.SustCoReportBAS\r\n\r\nA docassemble extension.\r\n\r\n## Author\r\n\r\nJonas Norén, jonas@davcon.se\r\n\r\n',
       long_description_content_type='text/markdown',
@@ -53,7 +53,7 @@ setup(name='docassemble.SustCoReportBASsv',
       url='https://docassemble.org',
       packages=find_packages(),
       namespace_packages=['docassemble'],
-      install_requires=['kaleido>=0.2.1', 'plotly>=5.7.0'],
+      install_requires=['kaleido>=0.2.1', 'plotly>=5.9.0'],
       zip_safe=False,
       package_data=find_package_data(where='docassemble/SustCoReportBASsv/', package='docassemble.SustCoReportBASsv'),
      )
