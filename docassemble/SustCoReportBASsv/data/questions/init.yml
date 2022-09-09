@@ -11,6 +11,7 @@ modules:
 ---
 mandatory: True
 section: Introduktion
+id: introduktion
 question:  |
   [FILE sustcoreport_logo]
 subquestion: |
@@ -19,7 +20,9 @@ subquestion: |
 
   Det tar uppskattningsvis 15-20 minuter att svara på frågorna vilket generera en unik rapport för er verksamhet. 
    
-  Processen är helt anonym och inga uppgifter som kan kopplas till dig eller er verksamhet kommer att sparas. Läs mer om hur inlämnad information hanteras via länken {informationshantering}.<br><br>
+  Processen är helt anonym och inga uppgifter som kan kopplas till dig eller er verksamhet kommer att sparas. Läs mer om hur inlämnad information hanteras via länken {informationshantering}.
+  
+  Notera att en del av frågorna sannolikt kommer vara lite svåra att ge exakta svara på. Detta är en konsekvens av att frågorna är utformade i enlighet internationella standarder. Vi ber er i dessa fall uppskatta svar efter bästa förmåga.<br><br>
 
 buttons:
   - Fortsätt: continue
@@ -81,7 +84,7 @@ fields:
       - Representation i utlandet
       - Ingen internationell verksamhet
     none of the above: True
-  - SustPrio Participant kod: results[i].person_name
+  - Om du har en <b>SustPrio Participant kod</b> skriv den här, annars hoppa över detta fält: results[i].person_name
     required: False
     
 continue button label: |
@@ -104,8 +107,7 @@ subquestion: |
   2) I vilken utsträckning **tillämpar ni** principen i **er verksamhet?**<br><br>
   3) Hur **viktig** är principen för **er bransch om 10 år**?<br><br>
   4) Hur **viktig** tror du att principen är för **era intressenter**?<br><br>
-
-  *Notera att du kan få fram exempel på de olika principerna genom att placera markkören på respektive princip nedan*<br><br> 
+  * Notera att du kan få fram exempel på de olika principerna genom att placera markören på respektive princip nedan<br><br> 
 
 fields:
   - note: <hr> ## styling is done with css - see separate file. 
@@ -275,7 +277,8 @@ subquestion: |
   1) Hur betydande är **er verksamhets nuvarande påverkan** på ansvarsområdet?<br><br>
   2) Hur betydande är **er branschs nuvarande påverkan** på ansvarsområdet?<br><br>
   3) Hur betydande kommer **er branschs påverkan vara om 10 år** på ansvarsområdet?<br><br> 
-  4) Hur betydande tror du att **era intressenter tycker** att er verksamhets påverkan är på ansvarsområdet?<br><br><br>
+  4) Hur betydande tror du att **era intressenter tycker** att er verksamhets påverkan är på ansvarsområdet?<br><br>
+  * Notera att du kan få fram exempel på de olika ansvarsområdena genom att placera markören på respektive ansvarsområden nedan<br><br> 
 
 fields:
 
@@ -477,6 +480,7 @@ fields:
       - Styrelse
       - Övriga
     none of the above: False
+    minlength: 5
     maxlength: 5
 
   - note: <hr>
@@ -510,6 +514,7 @@ fields:
       - Styrelse
       - Övriga
     none of the above: False
+    minlength: 5
     maxlength: 5
 
   - note: <hr>
@@ -544,6 +549,7 @@ fields:
       - Styrelse
       - Övriga
     none of the above: False
+    minlength: 5
     maxlength: 5
 
 
@@ -630,6 +636,7 @@ fields:
       - 16 - Fredliga och inkluderande samhällen
       - 17 - Genomförande och globalt partnerskap
     none of the above: False
+    minlength: 3
     maxlength: 3
 
   - note: <hr>
@@ -658,6 +665,7 @@ fields:
       - 16 - Fredliga och inkluderande samhällen
       - 17 - Genomförande och globalt partnerskap
     none of the above: False
+    minlength: 3
     maxlength: 3
 
 continue button label: |
@@ -949,6 +957,7 @@ mandatory: True
 section: Rapport
 css class: report_download
 #decoration: sds_favicon
+id: sista sidan
 question: Ladda ned eller skicka er SustCoReport
 subquestion: Gratulerar, ni har nu skapat er SustCoReport som kan ligga till grund för er organisations fortsatta arbete att bidra till hållbar utveckling.<br><br>Lycka till! 
 
